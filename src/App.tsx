@@ -18,26 +18,30 @@ const App: React.FunctionComponent = () => {
   };
 
   return (
-    <div>
-      <h3>Done in 5</h3>
+    <>
+      <header>header</header>
+      <main>
+        <h3>Done in 5</h3>
 
-      <div>
-        {icons.map((icon, idx) => {
-          const isComplete = idx < completeCount;
+        <div className="icons">
+          {icons.map((icon, idx) => {
+            const isComplete = idx < completeCount;
 
-          return (
-            <GoalIcon
-              key={icon.id}
-              index={idx}
-              isComplete={isComplete}
-              markComplete={idx => handleMarkComplete(idx)}
-            ></GoalIcon>
-          );
-        })}
-      </div>
+            return (
+              <GoalIcon
+                key={icon.id}
+                index={idx}
+                isComplete={isComplete}
+                markComplete={idx => handleMarkComplete(idx)}
+              ></GoalIcon>
+            );
+          })}
+        </div>
 
-      <button onClick={handleReset}>Reset</button>
-    </div>
+        <button onClick={handleReset}>Reset</button>
+      </main>
+      <footer>footer</footer>
+    </>
   );
 };
 
