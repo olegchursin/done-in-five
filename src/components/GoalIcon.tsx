@@ -3,22 +3,30 @@ import React, { MouseEventHandler, useState } from 'react';
 interface IGoalIcon {
   readonly index: number;
   readonly isComplete?: boolean;
+  readonly isDisabled?: boolean;
   readonly markComplete: (index: number) => MouseEventHandler;
 }
 
 const GoalIcon: React.FunctionComponent<IGoalIcon> = ({
   index,
   isComplete = false,
+  isDisabled = true,
   markComplete
 }) => {
-  const fill = isComplete ? 'var(--theme-success)' : 'var(--theme-gray)';
+  const fill = isDisabled
+    ? 'var(--theme-dark)'
+    : isComplete
+    ? 'var(--theme-success)'
+    : 'var(--theme-gray)';
 
   const handleClick = () => {
     markComplete(index);
   };
 
+  const classNames = `goal-icon ${isDisabled ? 'disabled' : null}`;
+
   return (
-    <div className="goal-icon" onClick={handleClick}>
+    <div className={classNames} onClick={handleClick}>
       <svg
         version="1.1"
         id="Layer_1"

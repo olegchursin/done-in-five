@@ -51,7 +51,7 @@ h6 {
 
 :root {
   --theme-background: #01121f;
-  --theme-dark: #021320;
+  --theme-dark: #152938;
   --theme-color: #d5ddea;
   --theme-success: #c5e478;
   --theme-gray: #637777;
@@ -129,4 +129,8 @@ input:active {
 
 .goal-icon:hover {
   cursor: pointer;
+}
+
+.goal-icon.disabled {
+  pointer-events: none;
 }

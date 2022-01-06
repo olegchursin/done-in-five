@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import GoalIcon from './GoalIcon';
 
-const icons = new Array(5).fill({}).map((e, i) => {
+const NUMBER_OF_STEPS = 5;
+
+const icons = new Array(NUMBER_OF_STEPS).fill({}).map((e, i) => {
   return { id: i };
 });
 
@@ -22,19 +24,23 @@ const GoalSteps: React.FunctionComponent = () => {
       <div className="icons">
         {icons.map((icon, idx) => {
           const isComplete = idx < completeCount;
+          const isDisabled = idx !== 0 && idx - completeCount >= 1;
 
           return (
             <GoalIcon
               key={icon.id}
               index={idx}
               isComplete={isComplete}
+              isDisabled={isDisabled}
               markComplete={idx => handleMarkComplete(idx)}
             ></GoalIcon>
           );
         })}
       </div>
 
-      <button onClick={handleReset}>Reset</button>
+      <div className="controls">
+        <button onClick={handleReset}>Reset</button>
+      </div>
     </>
   );
 };
