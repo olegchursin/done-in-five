@@ -50,35 +50,83 @@ h6 {
 */
 
 :root {
+  --theme-background: #01121f;
+  --theme-dark: #021320;
+  --theme-color: #d5ddea;
+  --theme-success: #c5e478;
+  --theme-gray: #637777;
   --header-height: 3em;
-  --header-background: #3e3e3e;
+  --header-background: var(--theme-background);
   --footer-height: 3em;
-  --footer-background: #3e3e3e;
+  --footer-background: var(--theme-background);
 }
 
 #root {
   height: 100%;
 }
 
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-color);
+}
+
 header {
   height: var(--header-height);
   background-color: var(--header-background);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1em;
 }
 
 main {
   height: calc(100% - var(--header-height) - var(--footer-height));
   display: flex;
+  gap: 3em;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 footer {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
   height: var(--footer-height);
   background-color: var(--footer-background);
+}
+
+a {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input {
+  font-size: 2em;
+  background-color: var(--theme-background);
+  border: none;
+  color: var(--theme-color);
+  text-align: center;
+  border-bottom: 2px solid var(--theme-background);
+}
+
+input:focus,
+input:focus-visible,
+input:active {
+  border-color: var(--theme-color);
+  outline: none;
 }
 
 .icons {
   display: flex;
   gap: 1em;
+}
+
+.goal-icon:hover {
+  cursor: pointer;
 }
