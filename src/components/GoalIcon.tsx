@@ -23,7 +23,9 @@ const GoalIcon: React.FunctionComponent<IGoalIcon> = ({
     markComplete(index);
   };
 
-  const classNames = `goal-icon ${isDisabled ? 'disabled' : null}`;
+  const complete = isComplete ? 'complete' : '';
+  const disabled = isDisabled ? 'disabled' : '';
+  const classNames = `goal-icon ${complete} ${disabled}`;
 
   return (
     <div className={classNames} onClick={handleClick}>

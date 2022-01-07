@@ -59,6 +59,8 @@ h6 {
   --header-background: var(--theme-background);
   --footer-height: 3em;
   --footer-background: var(--theme-background);
+  --icon-size: 64px;
+  --icon-size-lg: 68px;
 }
 
 #root {
@@ -127,8 +129,20 @@ input:active {
   gap: 1em;
 }
 
+.goal-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--theme-dark);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
 .goal-icon:hover {
   cursor: pointer;
+}
+
+.goal-icon:hover:not(.complete) {
+  background-color: var(--theme-success);
 }
 
 .goal-icon.disabled {
