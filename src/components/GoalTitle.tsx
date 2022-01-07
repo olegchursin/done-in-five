@@ -7,8 +7,16 @@ const GoalTitle: React.FunctionComponent = () => {
     setGoalTitle(value);
   };
 
+  const filled = goalTitle.length ? 'filled' : '';
+
   return (
-    <input type="text" autoFocus value={goalTitle} onChange={handleInput} />
+    <input
+      type="text"
+      className={filled}
+      placeholder={'Your goal name'}
+      value={goalTitle}
+      onChange={handleInput}
+    />
   );
 };
 

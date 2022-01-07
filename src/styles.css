@@ -114,7 +114,20 @@ input {
   border: none;
   color: var(--theme-color);
   text-align: center;
-  border-bottom: 2px solid var(--theme-background);
+  border-bottom: 2px solid var(--theme-dark);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+input.filled {
+  border-color: transparent;
+}
+
+input::placeholder {
+  transition: color 0.3s;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
 
 input:focus,
